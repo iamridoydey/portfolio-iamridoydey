@@ -4,11 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        secondColor: "#e3083d",
         mbNavBg: "#fff",
         mbNavDarkBg: "#9f9f9f2e",
         darkBg: "#0f172a",
         lightBg: "#fff",
         mbClickColor: "#808080",
+      },
+      fontFamily: {
+        montserrat: ["'Montserrat'", "sans-serif"],
+        poppins: ["'Poppins'", "sans-serif"],
       },
       screens: {
         esm: "380px",

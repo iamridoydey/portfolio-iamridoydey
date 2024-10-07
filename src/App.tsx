@@ -1,14 +1,12 @@
 import React from "react";
 import "./App.css";
-import MobileHeader from "./components/header/MobileHeader";
-import ThemeToggler from "./components/themetoggler/ThemeToggler";
 import { ThemeProvider } from "./store/ThemeContext";
+import Home from "./sections/Home";
 
 const App: React.FC = (): JSX.Element => {
   return (
     <ThemeProvider>
-      <MobileHeader/>
-      <ThemeToggler/>
+      <Home/>
     </ThemeProvider>
   );
 };

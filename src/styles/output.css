@@ -619,12 +619,24 @@ video {
   cursor: pointer;
 }
 
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .rounded-full {
@@ -663,14 +675,25 @@ video {
   padding-right: 2rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .text-black {
@@ -700,7 +723,107 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-/* Custom global styles */
+/* Custom fonts/poppins */
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Thin.ttf') format('truetype');
+
+  font-weight: 100;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-ExtraLight.ttf') format('truetype');
+
+  font-weight: 200;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Light.ttf') format('truetype');
+
+  font-weight: 300;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+
+  font-weight: 400;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+
+  font-weight: 500;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+
+  font-weight: 600;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+
+  font-weight: 700;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-ExtraBold.ttf') format('truetype');
+
+  font-weight: 800;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+
+  src: url('/fonts/poppins/Poppins-Black.ttf') format('truetype');
+
+  font-weight: 900;
+
+  font-style: normal;
+}
+
+/* Montserrat */
+
+@font-face {
+  font-family: "Montserrat";
+
+  src: url("/fonts/montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+
+  font-style: normal;
+}
 
 @media (min-width: 380px) {
   .esm\:gap-10 {
@@ -718,3 +841,7 @@ video {
     color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }
+
+
+
+
