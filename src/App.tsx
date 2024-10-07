@@ -6,7 +6,9 @@ import Home from "./sections/Home";
 const App: React.FC = (): JSX.Element => {
   return (
     <ThemeProvider>
-      <Home/>
+      <div className="h-120vh">
+        <Home />
+      </div>
     </ThemeProvider>
   );
 };

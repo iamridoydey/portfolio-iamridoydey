@@ -4,12 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        secondColor: "#e3083d",
-        mbNavBg: "#fff",
-        mbNavDarkBg: "#9f9f9f2e",
-        darkBg: "#0f172a",
-        lightBg: "#fff",
-        mbClickColor: "#808080",
+        primary: "#0f172a",
+        secondary: "#fff",
+        tertiary: "#e3083d",
+        quaternary: "",
+        transparentGray: "#9f9f9f2e",
+        fadeGray: "#808080",
+        darkGray: "#A9A9A9",
       },
       fontFamily: {
         montserrat: ["'Montserrat'", "sans-serif"],
@@ -19,7 +20,7 @@ export default {
         esm: "380px",
         sm: "480px",
         // => @media (min-width: 640px) { ... }
-
+        // smd: "420px",
         md: "768px",
         // => @media (min-width: 768px) { ... }
 

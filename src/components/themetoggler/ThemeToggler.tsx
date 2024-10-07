@@ -19,25 +19,24 @@ const ThemeToggler: React.FC = () => {
   useEffect(() => {
     const body = document.body;
     if (isDark) {
-      body.classList.add("bg-darkBg");
+      body.classList.add("bg-primary");
     } else {
-      body.classList.remove("bg-darkBg");
+      body.classList.remove("bg-primary");
     }
   }, [isDark]); // Dependency array to run effect when isDark changes
-
 
   return (
     <div className="relative">
       <button
         onClick={toggleTheme}
-        className={`w-10 h-10 rounded-full border fixed top-5 right-4 shadow-lg ${
-          isDark ? "bg-mbNavDarkBg text-white" : "bg-gray-200 text-black"
+        className={`w-12 h-12 rounded-full border-[0.5px] ${isDark?"border-secondary" :"border-black"} fixed top-4 lg:"bottom-24" right-4 z-100 shadow-lg ${
+          isDark ? "bg-transparent text-white" : "bg-white text-black"
         }`}
       >
         {isDark ? (
-          <IoMoonOutline className="m-auto" />
+          <IoMoonOutline className="m-auto w-full h-full p-2" />
         ) : (
-          <IoSunnyOutline className="m-auto" />
+          <IoSunnyOutline className="m-auto w-full h-full p-2" />
         )}
       </button>
     </div>
