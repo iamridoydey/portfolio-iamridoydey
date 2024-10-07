@@ -3,6 +3,3 @@
 @tailwind utilities;
 
 /* Custom global styles */
-body {
-  @apply bg-white dark:bg-darkBg;
-}
