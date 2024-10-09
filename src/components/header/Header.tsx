@@ -1,8 +1,7 @@
 import React from "react";
-import MobileHeader from "../components/header/MobileHeader";
-import MainHeader from "../components/header/MainHeader";
-import ThemeToggler from "../components/themetoggler/ThemeToggler";
-
+import MainHeader from "./MainHeader";
+import MobileHeader from "./MobileHeader";
+import ThemeToggler from "../themetoggler/ThemeToggler";
 const Header: React.FC = () => {
   return (
     <section className="home">

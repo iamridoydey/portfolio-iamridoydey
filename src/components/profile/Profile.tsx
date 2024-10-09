@@ -1,8 +1,11 @@
 import React from 'react'
+import ProfilePic from './ProfilePic'
 
 const Profile:React.FC = () => {
   return (
-    <div>Profile</div>
+    <section>
+      <ProfilePic/>
+    </section>
   )
 }
 

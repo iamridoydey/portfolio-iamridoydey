@@ -566,10 +566,6 @@ video {
   position: relative;
 }
 
-.bottom-24 {
-  bottom: 6rem;
-}
-
 .bottom-3 {
   bottom: 0.75rem;
 }
@@ -613,10 +609,6 @@ video {
 
 .h-6 {
   height: 1.5rem;
-}
-
-.h-\[130vh\] {
-  height: 130vh;
 }
 
 .h-full {
@@ -961,30 +953,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:bottom-24 {
-    bottom: 6rem;
-  }
-
-  .lg\:top-0 {
-    top: 0px;
-  }
-
-  .lg\:top-24 {
-    top: 6rem;
-  }
-
-  .lg\:top-\[\] {
-    top: ;
-  }
-
-  .lg\:top-\[80\] {
-    top: 80;
-  }
-
-  .lg\:top-\[90\] {
-    top: 90;
-  }
-
   .lg\:top-\[90vh\] {
     top: 90vh;
   }
