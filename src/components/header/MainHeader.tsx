@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../store/ThemeContext";
 
 const MainHeader: React.FC = () => {
@@ -17,9 +17,36 @@ const MainHeader: React.FC = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+
+  // Page On Scroll state
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(()=>{
+    const handleScroll = () =>{
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return ()=>{
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+
   return (
-    <nav className="pt-4 flex justify-center">
-      <ul className="flex items-center justify-between gap-4 font-montserrat font-semibold">
+    <nav
+      className={`hidden lg:flex justify-center ${
+        isScrolled ? `fixed top-6 border-[1px] rounded-[50px] px-8 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out ${isDark? "bg-[#53535333]": "bg-secondary"}` : "pt-4"
+      }`}
+    >
+      <ul
+        className={`flex items-center justify-between ${isScrolled? "" : ""} gap-4 font-montserrat font-semibold `}
+      >
         {menuItems.map((item) => (
           <li key={item.name}>
             <a

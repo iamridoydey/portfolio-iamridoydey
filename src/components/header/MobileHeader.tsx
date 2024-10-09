@@ -15,11 +15,10 @@ const MobileHeader: React.FC = (): JSX.Element => {
   const [activeBtn, setActiveBtn] = useState("");
 
   return (
-    <div className="relative">
-      <section
+      <nav
         className={`${
           isDark ? "bg-transparentGray" : "bg-white"
-        } w-[95%] fixed left-1/2 bottom-3 transform -translate-x-1/2 border flex justify-between gap-4 esm:gap-8 sm:gap-12 px-4 esm:px-8 py-3 rounded-lg shadow-xl`}
+        } w-[95%] fixed left-1/2 bottom-3 transform -translate-x-1/2 border flex justify-between gap-4 esm:gap-8 sm:gap-12 px-4 esm:px-8 py-3 rounded-lg shadow-xl lg:hidden`}
       >
         <a href="#home">
           <AiOutlineHome
@@ -93,8 +92,7 @@ const MobileHeader: React.FC = (): JSX.Element => {
             } w-6 h-6 esm:w-7 esm:h-7 sm:w-8 sm:h-8 cursor-pointer`}
           />
         </a>
-      </section>
-    </div>
+      </nav>
   );
 };
 
