@@ -4,7 +4,7 @@ import MobileHeader from "./MobileHeader";
 import ThemeToggler from "../themetoggler/ThemeToggler";
 const Header: React.FC = () => {
   return (
-    <section className="home">
+    <section className="header">
       <MainHeader />
       <MobileHeader />
       <ThemeToggler />

@@ -11,6 +11,7 @@ export default {
         transparentGray: "#9f9f9f2e",
         fadeGray: "#808080",
         darkGray: "#A9A9A9",
+        btnGray: "#504d4d"
       },
       fontFamily: {
         montserrat: ["'Montserrat'", "sans-serif"],
