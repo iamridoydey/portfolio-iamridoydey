@@ -41,11 +41,17 @@ const MainHeader: React.FC = () => {
   return (
     <nav
       className={`hidden lg:flex justify-center ${
-        isScrolled ? `fixed top-6 border-[1px] rounded-[50px] px-8 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out ${isDark? "bg-[#53535333]": "bg-secondary"}` : "pt-4"
+        isScrolled
+          ? `fixed z-30 top-6 border-[1px] rounded-[50px] px-8 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out  bg-opacity-90 ${
+              isDark ? "bg-[#000]" : "bg-secondary bg-opacity-95"
+            }`
+          : "pt-4"
       }`}
     >
       <ul
-        className={`flex items-center justify-between ${isScrolled? "" : ""} gap-4 font-montserrat font-semibold `}
+        className={`flex items-center justify-between ${
+          isScrolled ? "" : ""
+        } gap-4 font-montserrat font-semibold `}
       >
         {menuItems.map((item) => (
           <li key={item.name}>

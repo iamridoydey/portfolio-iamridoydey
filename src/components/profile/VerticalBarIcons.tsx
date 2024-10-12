@@ -6,7 +6,7 @@ import { IoMailOutline } from "react-icons/io5";
 
 const VerticalBarIcons: React.FC = () => {
   return (
-    <section className='fixed top-0 left-5 h-[40%] flex flex-col items-center gap-3' >
+    <section className='absolute top-[-145px] left-5 h-[40%] flex flex-col items-center gap-3' >
       <div className="w-1 h-[60%] bg-blue-300"></div>
       <div>
         <ul className='flex flex-col gap-2 text-tertiary text-xl'>

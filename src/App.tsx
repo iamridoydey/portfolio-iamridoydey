@@ -7,8 +7,10 @@ import About from "./sections/About";
 const App: React.FC = (): JSX.Element => {
   return (
     <ThemeProvider>
-      <Home/>
-      <About/>
+      <main className={`max-w-[1440px] mx-auto px-4`}>
+        <Home />
+        <About />
+      </main>
     </ThemeProvider>
   );
 };

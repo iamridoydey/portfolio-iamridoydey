@@ -4,7 +4,7 @@ import Header from "../components/header/Header";
 
 const Home: React.FC = () => {
   return (
-    <section className="home_wrapper max-h-[100vh] flex flex-col gap-24">
+    <section id="home" className="home_wrapper max-h-[100vh] flex flex-col gap-24">
       <Header/>
       <Profile/>
     </section>
