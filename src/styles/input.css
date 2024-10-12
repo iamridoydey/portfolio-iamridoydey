@@ -75,5 +75,7 @@
 }
 
 
-
+.section_height{
+  height: calc(100vh - 7rem);
+}
 
