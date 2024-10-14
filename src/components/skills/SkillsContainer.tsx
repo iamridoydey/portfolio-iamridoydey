@@ -6,7 +6,7 @@ import OtherSkills from './OtherSkills';
 
 const SkillsContainer:React.FC = () => {
   return (
-    <div className="pt-28 margin-auto">
+    <div className="pt-16 lg:pt-28 margin-auto">
       <Tag />
       <Title />
       <section className='w-full px-5 pt-10 flex flex-col md:flex-row justify-between gap-6'>
