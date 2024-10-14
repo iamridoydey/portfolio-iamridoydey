@@ -3,7 +3,7 @@ import SkillsContainer from '../components/skills/SkillsContainer'
 
 const Skills:React.FC = () => {
   return (
-    <section id="skills" className="skills_wrapper w-full h-[100vh]">
+    <section id="skills" className="skills_wrapper w-full">
       <SkillsContainer />
     </section>
   );

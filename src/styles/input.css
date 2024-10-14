@@ -79,3 +79,7 @@
   height: calc(100vh - 7rem);
 }
 
+
+.slider_shadow{
+  box-shadow:  0 4px 10px rgb(0 0 0 / 60%);
+}

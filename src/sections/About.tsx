@@ -5,8 +5,8 @@ import AboutTitle from '../components/about/AboutTitle';
 
 const About:React.FC = () => {
   return (
-    <section id="about" className="about_wrapper h-[100vh] box-border">
-      <div className="max-w-[1200px] float-right pt-28 box-border">
+    <section id="about" className="about_wrapper max-w-[1200px] h-[100vh] box-border">
+      <div className=" float-right pt-28 box-border">
         <Tag />
         <AboutTitle />
         <AboutMain />

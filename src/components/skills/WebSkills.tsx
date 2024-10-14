@@ -16,10 +16,10 @@ const WebSkills: React.FC = () => {
     { img: "/icons/react.svg", color: "#61DAFB" },
     { img: "/icons/bootstrap.svg", color: "#7952B3" },
     { img: "/icons/tailwind.svg", color: "#06B6D4" },
+    { img: `/icons/${isDark? "express_white": "express"}.svg`, color: `${isDark? "#ffffff" : "#000000"}` },
     { img: "/icons/mongodb.svg", color: "#47A248" },
     { img: "/icons/postgresql.svg", color: "#336791" },
     { img: "/icons/python.svg", color: "#3776AB" },
-    { img: "/icons/java.svg", color: "#007396" },
   ];
 
   return (

@@ -4,6 +4,7 @@ import { ThemeProvider } from "./store/ThemeContext";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
+import Projects from "./sections/Projects";
 
 const App: React.FC = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = (): JSX.Element => {
         <Home />
         <About />
         <Skills/>
+        <Projects/>
       </main>
     </ThemeProvider>
   );
