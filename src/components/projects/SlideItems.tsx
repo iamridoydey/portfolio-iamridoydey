@@ -57,21 +57,31 @@ const SlideItems: React.FC<Items> = ({
         duration: 1, // Increased duration for smoother transitions
         ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smooth, natural motion
       }}
-      className={`slide_item absolute h-[520px] w-full px-8 pt-12 ${
+      className={`slide_item absolute lg:h-[520px] w-[350px] md:w-[400px] lg:w-full px-8 md:px-16 lg:px-8 py-12 ${
         isDark ? "bg-[#07273afa]" : "bg-secondary"
       }  slider_shadow rounded-lg box-border`}
     >
       <div className="main flex flex-nowrap gap-8">
         <div className="left flex flex-col gap-4">
           <h3
-            className={`font-montserrat font-bold text-2xl ${
+            className={`font-montserrat font-bold text-xl lg:text-2xl ${
               isDark ? "text-blue-100" : "text-black"
             }`}
           >
             {title}
           </h3>
+
+          {/* Mobile img view */}
+          <div className="right lg:hidden w-1/1 h-auto">
+            <img
+              className="w-full h-auto rounded-lg"
+              src={img}
+              alt="Project screenshot"
+            />
+          </div>
+
           <p
-            className={`font-poppins font-semibold text-md ${
+            className={`hidden lg:block font-poppins font-semibold text-md ${
               isDark ? "text-blue-100" : "text-black"
             }`}
           >
@@ -80,7 +90,7 @@ const SlideItems: React.FC<Items> = ({
 
           <div className="technologies">
             <h3
-              className={`text-xl font-semibold mb-3 ${
+              className={`text-lg lg:text-xl font-semibold mb-3 ${
                 isDark ? "text-blue-100" : "text-black"
               }`}
             >
@@ -88,14 +98,14 @@ const SlideItems: React.FC<Items> = ({
             </h3>
             <div className="grid grid-cols-4 gap-3">
               {tech.map((icon, techIndex) => (
-                <figure key={techIndex} className="w-12 h-12">
+                <figure key={techIndex} className="w-8 h-8 lg:w-12 lg:h-12">
                   <img className="w-full h-full" src={icon} alt="Tech icon" />
                 </figure>
               ))}
             </div>
           </div>
         </div>
-        <div className="right max-w-30">
+        <div className="right hidden lg:block max-w-30">
           <img
             className="w-full h-auto rounded-lg"
             src={img}
@@ -103,16 +113,16 @@ const SlideItems: React.FC<Items> = ({
           />
         </div>
       </div>
-      <div className="buttons mt-4 flex gap-4">
+      <div className="buttons mt-4 flex flex-col lg:flex-row gap-4">
         <a
           href="#"
-          className="px-12 py-4 bg-tertiary text-secondary rounded-md hover:bg-blue-400"
+          className="px-12 py-3 bg-tertiary text-center font-bold text-secondary rounded-md hover:bg-blue-400"
         >
           Live Demo
         </a>
         <a
           href="#"
-          className="px-12 py-4  bg-tertiary text-secondary rounded-md hover:bg-blue-400"
+          className="px-12 py-3  bg-tertiary text-center font-bold text-secondary rounded-md hover:bg-blue-400"
         >
           Github
         </a>

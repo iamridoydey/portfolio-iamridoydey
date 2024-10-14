@@ -66,8 +66,8 @@ const Slider: React.FC = () => {
   };
 
   return (
-    <div className="slider">
-      <div className="slide_item_container relative max-w-[900px] min-h-[500px] m-auto flex flex-col gap-8">
+    <div className="slider relative">
+      <div className="slide_item_container relative max-w-[900px] min-h-[500px] m-auto flex flex-col justify-center items-center">
         {slides.map((slide, index) => (
           <SlideItems
             key={index}
@@ -79,19 +79,20 @@ const Slider: React.FC = () => {
             handleEvent={handleEvent}
           />
         ))}
-      </div>
-      {/* Dot Navigation */}
-      <div className="relative navigation_container">
-        <div className="dots flex justify-center mt-4 gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleEvent(index)}
-              className={`w-4 h-4 rounded-full ${
-                index === clickedIndex ? "bg-tertiary" : "bg-gray-400"
-              }`}
-            ></button>
-          ))}
+
+        {/* Dot Navigation */}
+        <div className="navigation_container absolute z-[100] bottom-1 md:bottom-0 lg:bottom-4">
+          <div className="dots flex justify-center mt-4 gap-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleEvent(index)}
+                className={`w-4 h-4 rounded-full ${
+                  index === clickedIndex ? "bg-tertiary" : "bg-gray-400"
+                }`}
+              ></button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

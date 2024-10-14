@@ -6,7 +6,7 @@ const Title:React.FC = () => {
   return (
     <section>
       <h1
-        className={`font-poppins text-3xl font-bold my-10 text-center ${
+        className={`font-poppins text-2xl lg:text-3xl font-bold my-6  lg:my-10 text-center ${
           isDark ? "text-blue-100" : "text-black"
         }`}
       >
