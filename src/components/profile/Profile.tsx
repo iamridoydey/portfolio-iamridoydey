@@ -11,7 +11,7 @@ import VerticalBarIcons from './VerticalBarIcons'
 const Profile:React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
   return (
-    <section className={`h-[100vh] flex flex-col items-center gap-5 relative ${isDark? "text-secondary" : "text-black"}`}>
+    <section className={`h-[100vh] flex flex-col items-center gap-2 md:gap-5 relative ${isDark? "text-secondary" : "text-black"}`}>
       <ProfilePic/>
       <Name/>
       <Title/>

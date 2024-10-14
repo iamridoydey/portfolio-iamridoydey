@@ -7,7 +7,7 @@ const Name: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
   return (
     <section className="flex items-center justify-center gap-2 ">
-      <h1 className={`text-4xl font-semibold font-montserrat ${isDark? "text-blue-300": "text-black"}`}>
+      <h1 className={`text-3xl lg:text-4xl font-semibold font-montserrat ${isDark? "text-blue-300": "text-black"}`}>
         Hi, I'm Ridoy
       </h1>
       <motion.div
@@ -20,7 +20,7 @@ const Name: React.FC = () => {
           repeatDelay: 1
         }}
       >
-        <PiHandWavingDuotone className="fill-tertiary text-5xl" />
+        <PiHandWavingDuotone className="fill-tertiary text-3xl md:text-4xl lg:text-5xl" />
       </motion.div>
     </section>
   );

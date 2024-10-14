@@ -17,9 +17,9 @@ const Title: React.FC = () => {
   }, [controls]);
 
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center mt-3">
       <motion.h1
-        className="text-5xl font-bold bg-gradient-to-r from-tertiary via-blue-400 to-tertiary bg-clip-text text-transparent max-w-fit"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold bg-gradient-to-r from-tertiary via-blue-400 to-tertiary bg-clip-text text-transparent max-w-fit"
         animate={controls} // Use the animation controls
         style={{
           backgroundSize: "200% 200%", // Allow room for background movement

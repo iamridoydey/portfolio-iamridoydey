@@ -4,9 +4,9 @@ import { ThemeContext } from "../../store/ThemeContext";
 const About: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
   return (
-    <section className="w-1/2 text-center">
+    <section className="w-1/2 md:w-auto px-10 lg:w-[800px] text-center">
       <p
-        className={`text-xl font-medium  ${
+        className={`text-xl font-medium hidden md:block  ${
           isDark ? "text-blue-100" : "text-black"
         }`}
       >
