@@ -24,6 +24,7 @@ export default {
         // smd: "420px",
         md: "768px",
         // => @media (min-width: 768px) { ... }
+        xmd: "850px",
 
         lg: "1024px",
         // => @media (min-width: 1024px) { ... }
