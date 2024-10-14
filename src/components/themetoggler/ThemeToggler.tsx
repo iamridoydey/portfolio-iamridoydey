@@ -32,7 +32,7 @@ const ThemeToggler: React.FC = () => {
         className={`w-12 h-12 z-20 rounded-full border-[0.5px] ${
           isDark ? "border-secondary" : "border-black"
         } fixed top-4 lg:top-[90vh] right-4 z-100 shadow-lg ${
-          isDark ? "bg-transparent text-white" : "bg-white text-black"
+          isDark ? "bg-primary text-white" : "bg-white text-black"
         }`}
       >
         {isDark ? (
