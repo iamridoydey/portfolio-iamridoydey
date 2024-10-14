@@ -13,7 +13,7 @@ const MainHeader: React.FC = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Resume", href: "#resume" },
+    // { name: "Resume", href: "#resume" }, // Remove the resume section
     { name: "Contact", href: "#contact" },
   ];
 
@@ -42,7 +42,7 @@ const MainHeader: React.FC = () => {
     <nav
       className={`hidden lg:flex justify-center ${
         isScrolled
-          ? `fixed z-30 top-6 border-[1px] rounded-[50px] px-8 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out  bg-opacity-90 ${
+          ? `fixed z-30 top-6 border-[1px] rounded-[50px] px-10 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out  bg-opacity-90 ${
               isDark ? "bg-[#000]" : "bg-secondary bg-opacity-95"
             }`
           : "pt-4"

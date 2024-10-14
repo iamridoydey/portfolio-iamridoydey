@@ -68,7 +68,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
             } w-6 h-6 esm:w-7 esm:h-7 sm:w-8 sm:h-8 cursor-pointer`}
           />
         </a>
-        <a href="#resume">
+
+        {/* Remove the resume section from here */}
+        {/* <a href="#resume">
           <AiOutlineFile
             onClick={() => setActiveBtn("resume")}
             className={`${
@@ -79,7 +81,7 @@ const MobileHeader: React.FC = (): JSX.Element => {
                 : "text-fadeGray"
             } w-6 h-6 esm:w-7 esm:h-7 sm:w-8 sm:h-8 cursor-pointer`}
           />
-        </a>
+        </a> */}
         <a href="#contact">
           <AiOutlineMail
             onClick={() => setActiveBtn("contact")}
