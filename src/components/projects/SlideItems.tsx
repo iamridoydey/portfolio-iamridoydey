@@ -40,7 +40,7 @@ const SlideItems: React.FC<Items> = ({
   return (
     <motion.div
       drag="x"
-      onDragEnd={(event, info) => {
+      onDragEnd={(_, info) => {
         if (info.offset.x < -20 || info.offset.x > 20) {
           handleEvent(index); // Move to the back when dragged
         }
