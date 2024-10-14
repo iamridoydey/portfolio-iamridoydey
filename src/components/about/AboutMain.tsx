@@ -1,14 +1,14 @@
-import React from 'react'
-import AboutLeft from './AboutLeft'
-import AboutRight from './AboutRight'
+import React from "react";
+import AboutLeft from "./AboutLeft";
+import AboutRight from "./AboutRight";
 
-const AboutMain:React.FC = () => {
+const AboutMain: React.FC = () => {
   return (
-    <section className={`mt-5 flex items-center justify-between gap-10`}>
-      <AboutLeft/>
-      <AboutRight/>
+    <section className="flex flex-col md:flex-row items-center justify-between gap-8 lg:p-4">
+      <AboutLeft />
+      <AboutRight />
     </section>
-  )
-}
+  );
+};
 
-export default AboutMain
+export default AboutMain;

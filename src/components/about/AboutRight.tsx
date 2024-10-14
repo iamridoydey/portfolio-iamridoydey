@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import CreateQuote from "./CreateQuote";
 const AboutRight: React.FC = () => {
   const quotes = [
-    "Outside of web development, I'm fascinated by software technologies—especially AI and Machine Learning—where innovative algorithms create endless possibilities.",
-    "Web development and learning new technologies keep my curiosity alive. Building projects is a way for me to explore creative solutions.",
-    "I am passionate about solving real-world problems with programming. I love the constant evolution in software and the challenges it brings.",
+    "Curiosity drives me to explore cutting-edge technologies like AI and Machine Learning, where I discover endless possibilities for innovation and solving real-world challenges.",
+    "Exploring new places fuels my passion for adventure, just like learning new technologies fuels my creativity, pushing me to overcome exciting new challenges each day.",
+    "Helping others through education is a core value of mine. Sharing knowledge empowers people to solve problems and fosters progress, making a meaningful impact in the world.",
   ];
+
+
 
   const [quoteNum, setQuoteNum] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
@@ -23,7 +25,7 @@ const AboutRight: React.FC = () => {
     // Set up an interval to change the slide every 10 seconds
     const intervalId = setInterval(() => {
       goToNextSlide();
-      setIsClicked(true)
+      setIsClicked(true);
     }, 10500);
 
     // Clean up the interval when the component unmounts
@@ -31,7 +33,7 @@ const AboutRight: React.FC = () => {
   }, [isClicked]);
 
   return (
-    <section className="relative max-w-[60%] h-full bg-transparent p-10 transition-all duration-400 ease-in-out overflow-hidden">
+    <section className="relative w-full lg:max-w-[60%] h-full mx-auto bg-transparent lg:p-10 transition-all duration-400 ease-in-out overflow-hidden">
       <section className="w-full slide_wrapper overflow-hidden">
         {/* Container for quotes */}
         <section
@@ -41,7 +43,12 @@ const AboutRight: React.FC = () => {
           }}
         >
           {quotes.map((quote, index) => (
-            <CreateQuote key={index} quote={quote} isClicked={isClicked} setIsClicked={setIsClicked}/>
+            <CreateQuote
+              key={index}
+              quote={quote}
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
+            />
           ))}
         </section>
       </section>
