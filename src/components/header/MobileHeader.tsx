@@ -3,7 +3,7 @@ import {
   AiOutlineHome,
   AiOutlineUser,
   AiOutlineProject,
-  AiOutlineFile,
+  // AiOutlineFile,
   AiOutlineMail,
 } from "react-icons/ai";
 import { FaLaptopCode } from "react-icons/fa";
