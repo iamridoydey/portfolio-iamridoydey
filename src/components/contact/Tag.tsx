@@ -7,7 +7,7 @@ const Tag: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
   return (
     <div
-      className={`flex flex-nowrap items-center justify-center gap-2 text-4xl font-extrabold`}
+      className={`flex flex-nowrap items-center justify-center lg:justify-start gap-2 text-2xl md:text-3xl lg:text-4xl font-extrabold`}
     >
       <TagStart />
       <h2 className={`font-montserrat ${isDark ? "text-secondary" : ""}`}>
