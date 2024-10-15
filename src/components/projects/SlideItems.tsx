@@ -75,7 +75,7 @@ const SlideItems: React.FC<Items> = ({
         duration: 1, // Increased duration for smoother transitions
         ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smooth, natural motion
       }}
-      className={`slide_item absolute w-full px-8 lg:p-12 py-6 mx-auto ${
+      className={`slide_item absolute w-full px-8 lg:p-12 py-6 m-auto ${
         isDark ? "bg-[#07273afa]" : "bg-secondary"
       }  slider_shadow rounded-lg box-border border-2 hover:border-tertiary transition-colors duration-100`}
     >
