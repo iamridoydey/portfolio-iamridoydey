@@ -26,9 +26,9 @@ const CursorEffect: React.FC = () => {
 
   // Radial gradient with transparency
   const radialGradientStyle = {
-    background: `radial-gradient(at ${mouseX}% ${mouseY}%, rgba(227, 8, 61, 0.7), ${
-      isDark ? "rgba(30, 41, 59, 0.7)" : "rgba(240, 240, 240, 0.8)"
-    })`,
+    background: `radial-gradient(at ${mouseX}% ${mouseY}%, ${
+      isDark ? "rgba(204, 54, 90, 0.7)" : "rgba(204, 54, 90, 0.6)"
+    }, ${isDark ? "rgba(30, 41, 59, 1)" : "rgba(240, 240, 240, 1)"})`,
   };
 
   return (
