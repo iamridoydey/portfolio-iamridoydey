@@ -33,7 +33,7 @@ const CursorEffect: React.FC = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full -z-[1] pointer-events-none"
+      className="fixed top-0 left-0 w-full h-full -z-[1] pointer-events-none over"
       style={radialGradientStyle}
     ></div>
   );
