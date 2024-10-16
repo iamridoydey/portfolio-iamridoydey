@@ -7,9 +7,23 @@ import React, {
 } from "react";
 import { ThemeContext } from "../../store/ThemeContext";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { useWindowWidth } from "../../store/WindowContext";
+
 
 const SendEmail: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
+  const { width } = useWindowWidth();
+
+  const variants = {
+    initial: { scale: 0.8, opacity: 0.9 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 1, delay: 0.4 },
+    },
+  };
+
   const form = useRef<HTMLFormElement>(null);
   const [success, setSuccess] = useState<boolean | null>(null); // Track success or failure
 
@@ -44,10 +58,13 @@ const SendEmail: React.FC = () => {
   }, [success]);
 
   return (
-    <div
+    <motion.div
       className={`relative border-[2px] sm:border-2 md:border-4 rounded ${
         isDark ? "" : "bg-slate-500 border-red-500"
       } hover:border-tertiary transition-colors duration-100 p-4 sm:p-6 md:p-10 box-border flex flex-col gap-6 w-full`}
+      variants={variants}
+      initial={width >= 1024 ? "initial" : "animate"}
+      whileInView="animate"
     >
       {/* Success or error message */}
       {success !== null && (
@@ -99,7 +116,7 @@ const SendEmail: React.FC = () => {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

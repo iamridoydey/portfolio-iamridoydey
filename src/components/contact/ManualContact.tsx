@@ -1,15 +1,30 @@
 import React, { useContext } from "react";
 import { FaLinkedinIn, FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import { ThemeContext } from "../../store/ThemeContext";
+import { useWindowWidth } from "../../store/WindowContext";
+import {motion} from "framer-motion"
 
 const ManualContact: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
+  const { width } = useWindowWidth();
+
+  const variants = {
+    initial: { scale: 0.8, opacity: 0.9 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 1, delay: 0.4 },
+    },
+  };
 
   return (
-    <div
+    <motion.div
       className={`border-[2px] sm:border-2 md:border-4 ${
         isDark ? "" : "border-red-500"
       } hover:border-tertiary transition-colors duration-100 rounded p-4 sm:p-6 md:p-10 bg-gray-800 box-border text-md md:text-xl text-blue-200 font-semibold w-full`}
+      variants={variants}
+      initial={width >= 1024 ? "initial" : "animate"}
+      whileInView="animate"
     >
       {/* Import Statement */}
       <h3 className={`mb-4`}>
@@ -80,7 +95,7 @@ const ManualContact: React.FC = () => {
         <span className="text-pink-700">export default</span>{" "}
         <span className="text-purple-400">ManuallyContact</span>;
       </h3>
-    </div>
+    </motion.div>
   );
 };
 
