@@ -4,6 +4,7 @@ import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
 import IconBlock from "./IconBlock";
 import {motion} from "framer-motion"
+import { useWindowWidth } from "../../store/WindowContext";
 
 const WebSkills: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
@@ -23,6 +24,7 @@ const WebSkills: React.FC = () => {
     { img: "/icons/python.svg", color: "#3776AB" },
   ];
 
+  const {width} = useWindowWidth()
   const variants = {
     initial: { x: "100%", opacity: 0 },
     animate: {
@@ -37,9 +39,8 @@ const WebSkills: React.FC = () => {
       className={`web_skills max-w-[548px] lg:max-w-auto p-6 lg:p-10 m-auto lg:m-10 h-fit rounded-lg border-4 border-blue-500 hover:border-tertiary transition-colors duration-500 ease-out ${
         isDark ? "bg-[#071f41bd]" : "bg-[#c5cbd5bd]"
       }`}
-
       variants={variants}
-      initial="initial"
+      initial={width >= 1024 ? "initial" : "animate"}
       whileInView="animate"
     >
       <div

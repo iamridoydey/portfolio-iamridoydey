@@ -4,10 +4,12 @@ import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
 import { iconHoverAnimation } from "./Animation";
 import { motion } from "framer-motion";
+import { useWindowWidth } from "../../store/WindowContext";
 
 const OtherSkills: React.FC = () => {
   const { isDark } = useContext(ThemeContext) || {}; // Use optional chaining for safety
 
+  const {width} = useWindowWidth()
   const variants = {
     initial: { x: "-100%", opacity: 0 },
     animate: {
@@ -22,8 +24,8 @@ const OtherSkills: React.FC = () => {
       className={`other_skills h-fit p-6 self-center rounded-lg border-4 border-blue-500 hover:border-tertiary transition-colors duration-500 ease-out shadow-2xl ${
         isDark ? "bg-[#071f41bd]" : "bg-[#c5cbd5bd]"
       }`}
-      variants={variants} 
-      initial="initial"
+      variants={variants}
+      initial={width >= 1024 ? "initial" : "animate"}
       whileInView="animate"
     >
       <div
