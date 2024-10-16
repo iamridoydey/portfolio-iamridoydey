@@ -662,6 +662,18 @@ video {
   z-index: 200;
 }
 
+.z-\[\] {
+  z-index: ;
+}
+
+.-z-\[1\] {
+  z-index: -1;
+}
+
+.-z-\[-1\] {
+  z-index: 1;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1445,6 +1457,14 @@ video {
 .text-yellow-500 {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-30 {
+  opacity: 0.3;
 }
 
 .shadow {

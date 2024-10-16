@@ -7,7 +7,7 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import { motion, useScroll, useSpring } from "framer-motion";
-
+import CursorEffect from "./components/basicUtility/CursorEffect";
 
 const App: React.FC = (): JSX.Element => {
   const { scrollYProgress } = useScroll();
@@ -15,18 +15,19 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <ThemeProvider>
-      {/* Main content */}
-      <main className="relative max-w-[1440px] mx-auto md:px-4">
-        {/* Scroll Progress Bar */}
-        <motion.div
-          style={{ scaleX }}
-          className="fixed w-full top-0 left-0 h-2 bg-[#13829a] origin-left z-[1000]"
-        ></motion.div>
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+      <main className={`relative w-full h-full`}>
+        <CursorEffect />
+        <section className="relative max-w-[1440px] mx-auto md:px-4">
+          <motion.div
+            style={{ scaleX }}
+            className="fixed w-full top-0 left-0 h-2 bg-[#13829a] origin-left z-[1000]"
+          ></motion.div>
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </section>
       </main>
     </ThemeProvider>
   );
