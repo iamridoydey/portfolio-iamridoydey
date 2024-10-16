@@ -4,12 +4,10 @@ import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
 import { iconHoverAnimation } from "./Animation";
 import { motion } from "framer-motion";
-import { useWindowWidth } from "../../store/WindowContext";
 
 const OtherSkills: React.FC = () => {
   const { isDark } = useContext(ThemeContext) || {}; // Use optional chaining for safety
 
-  const {width} = useWindowWidth()
   const variants = {
     initial: { x: "-100%", opacity: 0 },
     animate: {
@@ -25,7 +23,7 @@ const OtherSkills: React.FC = () => {
         isDark ? "bg-[#071f41bd]" : "bg-[#c5cbd5bd]"
       }`}
       variants={variants}
-      initial={width >= 1024 ? "initial" : "animate"}
+      initial="initial"
       whileInView="animate"
     >
       <div

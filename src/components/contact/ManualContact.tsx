@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { FaLinkedinIn, FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import { ThemeContext } from "../../store/ThemeContext";
-import { useWindowWidth } from "../../store/WindowContext";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 const ManualContact: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
-  const { width } = useWindowWidth();
 
   const variants = {
     initial: { scale: 0.8, opacity: 0.9 },
@@ -23,7 +21,7 @@ const ManualContact: React.FC = () => {
         isDark ? "" : "border-red-500"
       } hover:border-tertiary transition-colors duration-100 rounded p-4 sm:p-6 md:p-10 bg-gray-800 box-border text-md md:text-xl text-blue-200 font-semibold w-full`}
       variants={variants}
-      initial={width >= 1024 ? "initial" : "animate"}
+      initial="initial"
       whileInView="animate"
     >
       {/* Import Statement */}

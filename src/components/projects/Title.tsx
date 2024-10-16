@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../store/ThemeContext";
-import { useWindowWidth } from "../../store/WindowContext";
 import { motion } from "framer-motion";
 
 const Title: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
-  const { width } = useWindowWidth();
 
   const variants = {
     initial: { x: "-100%", opacity: 0 },
@@ -20,7 +18,7 @@ const Title: React.FC = () => {
     <motion.div
       className="w-full h-full mt-4 md:my-4 md:pb-4"
       variants={variants}
-      initial={width >= 1024 ? "initial" : "animate"}
+      initial="initial"
       whileInView="animate"
     >
       <h1

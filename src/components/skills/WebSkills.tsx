@@ -3,8 +3,7 @@ import TagStart from "../basicUtility/TagStart";
 import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
 import IconBlock from "./IconBlock";
-import {motion} from "framer-motion"
-import { useWindowWidth } from "../../store/WindowContext";
+import { motion } from "framer-motion";
 
 const WebSkills: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
@@ -18,13 +17,15 @@ const WebSkills: React.FC = () => {
     { img: "/icons/react.svg", color: "#61DAFB" },
     { img: "/icons/bootstrap.svg", color: "#7952B3" },
     { img: "/icons/tailwind.svg", color: "#06B6D4" },
-    { img: `/icons/${isDark? "express_white": "express"}.svg`, color: `${isDark? "#ffffff" : "#000000"}` },
+    {
+      img: `/icons/${isDark ? "express_white" : "express"}.svg`,
+      color: `${isDark ? "#ffffff" : "#000000"}`,
+    },
     { img: "/icons/mongodb.svg", color: "#47A248" },
     { img: "/icons/postgresql.svg", color: "#336791" },
     { img: "/icons/python.svg", color: "#3776AB" },
   ];
 
-  const {width} = useWindowWidth()
   const variants = {
     initial: { x: "100%", opacity: 0 },
     animate: {
@@ -40,7 +41,7 @@ const WebSkills: React.FC = () => {
         isDark ? "bg-[#071f41bd]" : "bg-[#c5cbd5bd]"
       }`}
       variants={variants}
-      initial={width >= 1024 ? "initial" : "animate"}
+      initial="initial"
       whileInView="animate"
     >
       <div

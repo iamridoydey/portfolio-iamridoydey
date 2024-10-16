@@ -8,12 +8,9 @@ import React, {
 import { ThemeContext } from "../../store/ThemeContext";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { useWindowWidth } from "../../store/WindowContext";
-
 
 const SendEmail: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
-  const { width } = useWindowWidth();
 
   const variants = {
     initial: { scale: 0.8, opacity: 0.9 },
@@ -63,7 +60,7 @@ const SendEmail: React.FC = () => {
         isDark ? "" : "bg-slate-500 border-red-500"
       } hover:border-tertiary transition-colors duration-100 p-4 sm:p-6 md:p-10 box-border flex flex-col gap-6 w-full`}
       variants={variants}
-      initial={width >= 1024 ? "initial" : "animate"}
+      initial="initial"
       whileInView="animate"
     >
       {/* Success or error message */}
