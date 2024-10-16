@@ -3,6 +3,7 @@ import TagStart from "../basicUtility/TagStart";
 import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
 import IconBlock from "./IconBlock";
+import {motion} from "framer-motion"
 
 const WebSkills: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
@@ -22,11 +23,24 @@ const WebSkills: React.FC = () => {
     { img: "/icons/python.svg", color: "#3776AB" },
   ];
 
+  const variants = {
+    initial: { x: "100%", opacity: 0 },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 1, delay: 0.2, staggerChildren: 0.2 },
+    },
+  };
+
   return (
-    <div
+    <motion.div
       className={`web_skills max-w-[548px] lg:max-w-auto p-6 lg:p-10 m-auto lg:m-10 h-fit rounded-lg border-4 border-blue-500 hover:border-tertiary transition-colors duration-500 ease-out ${
         isDark ? "bg-[#071f41bd]" : "bg-[#c5cbd5bd]"
       }`}
+
+      variants={variants}
+      initial="initial"
+      whileInView="animate"
     >
       <div
         className={`skills_title font-bold text-xl md:text-2xl lg:text-3xl text-center ${
@@ -47,7 +61,7 @@ const WebSkills: React.FC = () => {
           <IconBlock key={index} img={obj.img} color={obj.color} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
