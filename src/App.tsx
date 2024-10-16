@@ -17,7 +17,7 @@ const App: React.FC = (): JSX.Element => {
   return (
     <ThemeProvider>
       <WindowWidthProvider>
-        <main className={`relative w-full h-full`}>
+        <main className={`relative w-full h-full overflow-hidden`}>
           <CursorEffect />
           <section className="relative max-w-[1440px] mx-auto md:px-4">
             <motion.div
