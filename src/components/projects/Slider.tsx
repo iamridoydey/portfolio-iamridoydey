@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import SlideItems from "./SlideItems";
 import { ThemeContext } from "../../store/ThemeContext";
+import { useWindowWidth } from "../../store/WindowContext";
+import {motion} from "framer-motion"
 
 const Slider: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
@@ -65,8 +67,25 @@ const Slider: React.FC = () => {
     setClickedIndex(Math.round(Math.random() * 2));
   };
 
+
+  const { width } = useWindowWidth();
+
+  const variants = {
+    initial: { scale:0.8, opacity: 0.9 },
+    animate: {
+      scale:1,
+      opacity: 1,
+      transition: { duration: 1, delay: 0.4 },
+    },
+  };
+
   return (
-    <div className="slider relative w-full h-auto">
+    <motion.div
+      className="slider relative w-full h-auto"
+      variants={variants}
+      initial={width >= 1024 ? "initial" : "animate"}
+      whileInView="animate"
+    >
       <div className="slide_item_container absolute h-[480px] sm:h-[600px] w-[300px] sm:w-[480px] md:w-[768px] max-w-[900px]  flex flex-col justify-center items-center m-auto md:mt-6 top-1/2 left-1/2 transform -translate-x-1/2">
         {slides.map((slide, index) => (
           <SlideItems
@@ -95,7 +114,7 @@ const Slider: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
