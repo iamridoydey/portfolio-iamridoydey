@@ -24,7 +24,7 @@ const Buttons: React.FC = () => {
         </button>
       </motion.a>
       <motion.a
-        className="resume_btn w-[80%] sm:w-[181px]"
+        className="resume_btn w-[80%] sm:w-[200px]"
         target="_blank"
         href="/documents/iamridoydey.pdf"
         initial={{ scale: 1 }}
