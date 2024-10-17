@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import SlideItems from "./SlideItems";
 import { ThemeContext } from "../../store/ThemeContext";
 import { motion } from "framer-motion";
@@ -56,34 +56,34 @@ const Slider: React.FC = () => {
   ]);
 
   const [clickedIndex, setClickedIndex] = useState(0);
-  const N = slides.length;
-  const findId = (itemId: number): number => {
-    let id = 0;
-    while (id < N) {
-      if (slides[id].id === itemId) return id;
-      id++;
-    }
-    return id;
-  };
+
+  // Create a Map for quick lookups
+  const slidesMap = useMemo(() => {
+    const map = new Map<number, number>();
+    slides.forEach((slide, index) => {
+      map.set(slide.id, index);
+    });
+    return map;
+  }, [slides]);
 
   const handleEvent = (btnId: number) => {
     // Early return if the clicked button is already active
     if (btnId === clickedIndex) return;
 
-    const actualIndex = findId(btnId);
-    const updatedSlides = [...slides];
+    const actualIndex = slidesMap.get(btnId); // O(1) lookup
+    if (actualIndex === undefined) return;
 
-    // Swapping slides
-    const temp = updatedSlides[N - 1];
-    updatedSlides[N - 1] = updatedSlides[actualIndex];
-    updatedSlides[actualIndex] = temp;
-
-    // Log for debugging
-    console.log("New slides order: ", updatedSlides);
-    console.log("Selected button index: ", btnId);
-
-    setSlides(updatedSlides); // Properly updating the slides
-    setClickedIndex(btnId); // Setting clicked index
+    // Swap slides in place for better performance
+    setSlides((prevSlides) => {
+      const updatedSlides = [...prevSlides]; // Create a shallow copy of the previous slides
+      // Swapping the first slide with the actual index slide
+      [updatedSlides[0], updatedSlides[actualIndex]] = [
+        updatedSlides[actualIndex],
+        updatedSlides[0],
+      ];
+      return updatedSlides;
+    });
+    setClickedIndex(btnId); // Update clicked index
   };
 
   const variants = {
@@ -120,12 +120,11 @@ const Slider: React.FC = () => {
             {slides.map((_, index) => (
               <button
                 key={index}
-                onClick={() => handleEvent(index)}
-                className={`w-4 h-4 rounded-full ${
-                  index === clickedIndex ? "bg-tertiary" : "bg-gray-400"
+                className={`dot w-4 h-4 rounded-full ${
+                  clickedIndex === index ? "bg-tertiary" : "bg-gray-300"
                 }`}
-                aria-label={`Slide ${index + 1}`}
-              ></button>
+                onClick={() => handleEvent(index)}
+              />
             ))}
           </div>
         </div>
