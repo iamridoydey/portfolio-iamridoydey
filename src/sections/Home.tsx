@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className="home_wrapper max-h-[100vh] flex flex-col gap-24"
+      className="home_wrapper flex flex-col gap-24"
       ref={(el) => {
         if (sectionsRefs.current) {
           sectionsRefs.current.home = el;

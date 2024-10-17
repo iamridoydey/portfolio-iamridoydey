@@ -33,7 +33,7 @@ const Profile: React.FC = () => {
 
   return (
     <motion.section
-      className={`h-[100vh] flex flex-col items-center gap-2 md:gap-5 relative ${
+      className={`flex flex-col items-center gap-2 md:gap-5 relative ${
         isDark ? "text-secondary" : "text-black"
       }`}
       variants={containerVariants}
