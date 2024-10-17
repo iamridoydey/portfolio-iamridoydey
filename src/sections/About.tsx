@@ -15,7 +15,7 @@ const About: React.FC = () => {
           sectionsRefs.current.about = el;
         }
       }}
-      className="about_wrapper mx-auto max-w-[1200px] min-h-[100vh] box-border"
+      className="about_wrapper mx-auto max-w-[1200px] box-border"
     >
       <div className="w-full h-full pt-20 lg:pt-28 box-border">
         <Tag />
