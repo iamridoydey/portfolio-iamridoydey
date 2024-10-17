@@ -1,57 +1,54 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../store/ThemeContext";
 
-const MainHeader: React.FC = () => {
+interface activeProps {
+  active: string;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
   const isDark = useContext(ThemeContext)?.isDark;
-
-  // Use these states for hover and active classes
   const [hovered, setHovered] = useState<string | null>(null);
-  const [active, setActive] = useState<string>("Home");
-
-  const menuItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    // { name: "Resume", href: "#resume" }, // Remove the resume section
-    { name: "Contact", href: "#contact" },
-  ];
-
-
-  // Page On Scroll state
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  useEffect(()=>{
-    const handleScroll = () =>{
+  const menuItems = [
+    { name: "home", href: "#home" },
+    { name: "about", href: "#about" },
+    { name: "skills", href: "#skills" },
+    { name: "projects", href: "#projects" },
+    { name: "contact", href: "#contact" },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
-    }
-
+    };
     window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-    return ()=>{
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
+  const capitalCase = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
 
   return (
     <nav
       className={`hidden lg:flex justify-center ${
         isScrolled
-          ? `fixed z-30 top-6 border-[1px] rounded-[50px] px-10 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out  bg-opacity-90 ${
+          ? `fixed z-30 top-6 border-[1px] rounded-[50px] px-10 py-3 left-1/2 transform -translate-x-1/2 shadow-lg transition-all ease-in-out bg-opacity-90 ${
               isDark ? "bg-[#000]" : "bg-secondary bg-opacity-95"
             }`
           : "pt-4"
       }`}
     >
       <ul
-        className={`flex items-center justify-between ${
-          isScrolled ? "" : ""
-        } gap-4 font-montserrat font-semibold `}
+        className={`flex items-center justify-between gap-4 font-montserrat font-semibold`}
       >
         {menuItems.map((item) => (
           <li key={item.name}>
@@ -64,9 +61,7 @@ const MainHeader: React.FC = () => {
             >
               <span
                 className={`font-montserrat text-tertiary text-2xl ${
-                  hovered === item.name ||
-                  active === item.name ||
-                  (active === "Home" && item.name === "Home")
+                  hovered === item.name || active === item.name
                     ? ""
                     : "invisible"
                 }`}
@@ -75,22 +70,18 @@ const MainHeader: React.FC = () => {
               </span>
               <span
                 className={`mx-2 text-xl ${
-                  hovered === item.name ||
-                  active === item.name ||
-                  (active === "Home" && item.name === "Home")
+                  hovered === item.name || active === item.name
                     ? isDark
                       ? "text-secondary"
                       : "text-black"
-                    : " text-fadeGray"
+                    : "text-fadeGray"
                 }`}
               >
-                {item.name}
+                {capitalCase(item.name)}
               </span>
               <span
                 className={`text-tertiary text-2xl ${
-                  hovered === item.name ||
-                  active === item.name ||
-                  (active === "Home" && item.name === "Home")
+                  hovered === item.name || active === item.name
                     ? ""
                     : "invisible"
                 }`}

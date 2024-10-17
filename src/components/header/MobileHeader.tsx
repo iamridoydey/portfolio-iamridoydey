@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,} from "react";
 import {
   AiOutlineHome,
   AiOutlineUser,
@@ -9,10 +9,13 @@ import {
 import { FaLaptopCode } from "react-icons/fa";
 import { ThemeContext } from "../../store/ThemeContext";
 
-const MobileHeader: React.FC = (): JSX.Element => {
-  const isDark = useContext(ThemeContext)?.isDark;
+interface activeProps{
+  active: string;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  const [activeBtn, setActiveBtn] = useState("");
+const MobileHeader: React.FC<activeProps> = ({active, setActive}): JSX.Element => {
+  const isDark = useContext(ThemeContext)?.isDark;
 
   return (
     <nav
@@ -22,9 +25,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
     >
       <a href="#home">
         <AiOutlineHome
-          onClick={() => setActiveBtn("home")}
+          onClick={() => setActive("home")}
           className={`${
-            activeBtn === "home"
+            active === "home"
               ? isDark
                 ? "text-secondary"
                 : "text-black"
@@ -34,9 +37,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
       </a>
       <a href="#about">
         <AiOutlineUser
-          onClick={() => setActiveBtn("about")}
+          onClick={() => setActive("about")}
           className={`${
-            activeBtn === "about"
+            active === "about"
               ? isDark
                 ? "text-secondary"
                 : "text-black"
@@ -46,9 +49,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
       </a>
       <a href="#skills">
         <FaLaptopCode
-          onClick={() => setActiveBtn("skills")}
+          onClick={() => setActive("skills")}
           className={`${
-            activeBtn === "skills"
+            active === "skills"
               ? isDark
                 ? "text-secondary"
                 : "text-black"
@@ -58,9 +61,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
       </a>
       <a href="#projects">
         <AiOutlineProject
-          onClick={() => setActiveBtn("projects")}
+          onClick={() => setActive("projects")}
           className={`${
-            activeBtn === "projects"
+            active === "projects"
               ? isDark
                 ? "text-secondary"
                 : "text-black"
@@ -72,9 +75,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
       {/* Remove the resume section from here */}
       {/* <a href="#resume">
           <AiOutlineFile
-            onClick={() => setActiveBtn("resume")}
+            onClick={() => setActive("resume")}
             className={`${
-              activeBtn === "resume"
+              active === "resume"
                 ? isDark
                   ? "text-secondary"
                   : "text-black"
@@ -84,9 +87,9 @@ const MobileHeader: React.FC = (): JSX.Element => {
         </a> */}
       <a href="#contact">
         <AiOutlineMail
-          onClick={() => setActiveBtn("contact")}
+          onClick={() => setActive("contact")}
           className={`${
-            activeBtn === "contact"
+            active === "contact"
               ? isDark
                 ? "text-secondary"
                 : "text-black"
