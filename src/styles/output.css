@@ -1758,6 +1758,10 @@ video {
     width: 480px;
   }
 
+  .sm\:w-\[200px\] {
+    width: 200px;
+  }
+
   .sm\:max-w-\[70\%\] {
     max-width: 70%;
   }

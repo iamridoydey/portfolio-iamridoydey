@@ -9,8 +9,9 @@ const Buttons: React.FC = () => {
       className={`w-full mt-6 sm:mt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 md:gap-8 text-secondary`}
     >
       <motion.a
-        className="project_btn w-[80%] sm:w-[181px]"
-        href="#projects"
+        className="project_btn w-[80%] sm:w-[200px]"
+        target="_blank"
+        href="https://github.com/iamridoydey"
         initial={{ scale: 1 }}
         whileHover={{
           scale: 1.1,
@@ -19,7 +20,7 @@ const Buttons: React.FC = () => {
       >
         <button className="w-full flex flex-nowrap items-center justify-center gap-3 font-montserrat font-semibold bg-tertiary hover:bg-blue-300 px-6 py-3 rounded-md shadow-lg">
           <IoLogoGithub className="w-6 h-6" />
-          <span>My Projects</span>
+          <span>Me On Github</span>
         </button>
       </motion.a>
       <motion.a
