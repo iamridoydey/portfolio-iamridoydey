@@ -1,14 +1,14 @@
 import React from 'react'
 import Tag from './Tag'
 import Title from './Title'
-import Slider from './Slider'
+import SliderContainer from './SliderContainer'
 
 const ProjectContainer:React.FC = () => {
   return (
-    <div className={`pt-8 md:pt-12 lg:pt-28 sm:min-h-[130vh] min-h-[100vh] mx-auto`}>
+    <div className={`pt-8 md:pt-12 lg:pt-28 h-fit mx-auto`}>
       <Tag/>
       <Title/>
-      <Slider/>
+      <SliderContainer/>
     </div>
   )
 }

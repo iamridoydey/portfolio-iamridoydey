@@ -8,7 +8,7 @@ interface Items {
   img: string;
   description: string;
   tech: string[];
-  handleEvent: (index: number) => void;
+  // handleEvent: (index: number) => void;
 }
 
 const SlideItems: React.FC<Items> = ({
@@ -17,7 +17,7 @@ const SlideItems: React.FC<Items> = ({
   img,
   description,
   tech,
-  handleEvent,
+
 }) => {
   const isDark = useContext(ThemeContext)?.isDark;
 
@@ -42,44 +42,37 @@ const SlideItems: React.FC<Items> = ({
   const translation = index * -20; // Adjust for translation smoothness
   const scale = 1 - (index + 1) / 20;
 
-  // Run the handleEvent every 10 seconds, passing the index
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     handleEvent(index); // Passing the index
-  //   }, 5000);
-
-  //   return () => {
-  //     clearInterval(intervalId); // Clean up interval on component unmount
-  //   };
-  // }, [index, handleEvent]); // Dependencies: index and handleEvent
-
   return (
     <motion.div
       {...(isLargeScreen && {
-        drag: "x",
-        onDragEnd: (_, info) => {
-          if (info.offset.x < -20 || info.offset.x > 20) {
-            handleEvent(index); // Move to the back when dragged
-          }
-        },
-        dragConstraints: { left: -30, right: 30 },
-        whileTap: { cursor: "grabbing" },
+        // drag: "x",
+        // onDragEnd: (_, info) => {
+        //   if (info.offset.x < -20 || info.offset.x > 20) {
+        //     handleEvent(index); // Move to the back when dragged
+        //   }
+        // },
+        // dragConstraints: { left: -10, right: 10 },
+        // whileTap: { cursor: "grabbing" },
         animate: {
           rotate: rotation,
           x: translation,
           scaleY: scale,
           zIndex: 10 - index,
+          transition:{
+            delay: 1,
+            ease: "easeInOut",
+          }
         },
       })}
       transition={{
         duration: 1, // Increased duration for smoother transitions
         ease: [0.25, 0.46, 0.45, 0.94], // Custom easing for smooth, natural motion
       }}
-      className={`slide_item absolute w-full px-8 lg:p-12 py-6 ${
+      className={`slide_item absolute w-full px-8 pt-8 pb-16 md:p-16 ${
         isDark ? "bg-[#07273afa]" : "bg-secondary"
-      }  slider_shadow rounded-lg box-border border-2 hover:border-tertiary transition-colors duration-100`}
+      }  slider_shadow rounded-lg box-box border-2 hover:border-tertiary transition-colors duration-100`}
     >
-      <div className="main flex flex-nowrap gap-8">
+      <div className="main w-full flex flex-nowrap gap-8">
         <div className="left flex flex-col gap-4">
           <h3
             className={`font-montserrat font-bold text-xl lg:text-2xl ${
@@ -148,6 +141,7 @@ const SlideItems: React.FC<Items> = ({
           Github
         </a>
       </div>
+      
     </motion.div>
   );
 };

@@ -8,10 +8,11 @@ const Slider: React.FC = () => {
 
   const [slides, setSlides] = useState([
     {
+      id: 0,
       title: "Animation Portfolio",
       img: "/img/profile_demo.png",
       description:
-        "It is a portfolio project which is responsive and very fast. You will get a smooth experience of this website. Here I use bunch of animation",
+        "It is a portfolio project which is responsive and very fast. You will get a smooth experience of this website. Here I use a bunch of animations.",
       tech: [
         "/icons/html.svg",
         "/icons/scss.svg",
@@ -21,10 +22,11 @@ const Slider: React.FC = () => {
       ],
     },
     {
+      id: 1,
       title: "Task Book",
       img: "/img/taskBook.png",
       description:
-        "It is a to do app. But I love to named to Task Book as it maintain our task. As it is using backend then you can save your task and after accomplishing you can remove it",
+        "It is a to-do app. But I love to name it Task Book as it maintains our tasks. As it is using backend, you can save your tasks and after accomplishing them, you can remove them.",
       tech: [
         "/icons/html.svg",
         "/icons/css.svg",
@@ -37,10 +39,11 @@ const Slider: React.FC = () => {
       ],
     },
     {
+      id: 2,
       title: "iamridoydey Portfolio",
       img: "/img/portfolio.png",
       description:
-        "It is a portfolio project which is responsive and very fast. You will get a smooth experience of this website. Here I use bunch of animation",
+        "It is a portfolio project which is responsive and very fast. You will get a smooth experience of this website. Here I use a bunch of animations.",
       tech: [
         "/icons/html.svg",
         "/icons/css.svg",
@@ -53,21 +56,38 @@ const Slider: React.FC = () => {
   ]);
 
   const [clickedIndex, setClickedIndex] = useState(0);
-
-  const handleEvent = (index: number) => {
-    const updatedSlides = [...slides];
-    const [clickedSlide] = updatedSlides.splice(index, 1);
-    if (index == 0) {
-      updatedSlides.push(clickedSlide);
-    } else {
-      updatedSlides.unshift(clickedSlide);
+  const N = slides.length;
+  const findId = (itemId: number): number => {
+    let id = 0;
+    while (id < N) {
+      if (slides[id].id === itemId) return id;
+      id++;
     }
-    setSlides(updatedSlides);
-    setClickedIndex(Math.round(Math.random() * 2));
+    return id;
+  };
+
+  const handleEvent = (btnId: number) => {
+    // Early return if the clicked button is already active
+    if (btnId === clickedIndex) return;
+
+    const actualIndex = findId(btnId);
+    const updatedSlides = [...slides];
+
+    // Swapping slides
+    const temp = updatedSlides[N - 1];
+    updatedSlides[N - 1] = updatedSlides[actualIndex];
+    updatedSlides[actualIndex] = temp;
+
+    // Log for debugging
+    console.log("New slides order: ", updatedSlides);
+    console.log("Selected button index: ", btnId);
+
+    setSlides(updatedSlides); // Properly updating the slides
+    setClickedIndex(btnId); // Setting clicked index
   };
 
   const variants = {
-    initial: { scale: 0.8, opacity: 0.9 },
+    initial: { scale: 1, opacity: 0.9 },
     animate: {
       scale: 1,
       opacity: 1,
@@ -77,26 +97,25 @@ const Slider: React.FC = () => {
 
   return (
     <motion.div
-      className="slider relative w-full h-auto"
+      className="slider relative h-[460px] esm:h-[500px] sm:h-[560px] smd:h-[600px] md:h-[680px] xmd:h-[740px] lg:h-[540px] w-[300px] esm:w-[360px] sm:w-[480px] smd:w-[560px] md:w-[640px] xmd:w-[760px] lg:w-[840px] max-w-[900px] box-border flex items-center justify-center"
       variants={variants}
       initial="initial"
       whileInView="animate"
     >
-      <div className="slide_item_container absolute h-[480px] sm:h-[600px] w-[300px] sm:w-[480px] md:w-[768px] max-w-[900px]  flex flex-col justify-center items-center m-auto md:mt-6 top-1/2 left-1/2 transform -translate-x-1/2">
+      <div className="slide_item_container w-full h-full flex flex-col justify-center items-center md:mt-6">
         {slides.map((slide, index) => (
           <SlideItems
-            key={index}
+            key={slide.id}
             index={index}
             title={slide.title}
             img={slide.img}
             description={slide.description}
             tech={slide.tech}
-            handleEvent={handleEvent}
           />
         ))}
 
         {/* Dot Navigation */}
-        <div className="navigation_container absolute z-[100] bottom-0 md:-bottom-16 lg:bottom-4">
+        <div className="navigation_container absolute z-[100] bottom-2 esm:bottom-3 sm:bottom-2 lg:bottom-4">
           <div className="dots flex justify-center mt-4 gap-2">
             {slides.map((_, index) => (
               <button
@@ -105,6 +124,7 @@ const Slider: React.FC = () => {
                 className={`w-4 h-4 rounded-full ${
                   index === clickedIndex ? "bg-tertiary" : "bg-gray-400"
                 }`}
+                aria-label={`Slide ${index + 1}`}
               ></button>
             ))}
           </div>

@@ -21,7 +21,7 @@ export default {
         esm: "380px",
         sm: "480px",
         // => @media (min-width: 640px) { ... }
-        // smd: "420px",
+        smd: "560px",
         md: "768px",
         // => @media (min-width: 768px) { ... }
         xmd: "850px",

@@ -16,17 +16,17 @@ const Title: React.FC = () => {
 
   return (
     <motion.div
-      className="w-full h-full mt-4 md:my-4 md:pb-4"
+      className="w-full h-full"
       variants={variants}
       initial="initial"
       whileInView="animate"
     >
       <h1
-        className={`font-poppins text-2xl lg:text-3xl font-bold  text-center ${
-          isDark ? "text-blue-100" : "text-black"
+        className={`font-poppins py-4 text-2xl lg:text-3xl font-bold text-center ${
+          isDark ? "text-blue-300" : "text-black"
         }`}
       >
-        My Projects
+        My Latest Projects
       </h1>
     </motion.div>
   );
