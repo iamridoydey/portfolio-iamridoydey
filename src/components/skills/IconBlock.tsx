@@ -35,7 +35,7 @@ const IconBlock: React.FC<Icons> = ({ name, img, color }) => {
       style={{ borderColor: color }} // Set the border color dynamically
       className={`icon_container relative min-w-16 max-w-32 box-border border-4 rounded-lg flex items-center ${
         isSmall ? "flex-col justify-between gap-2" : "justify-center"
-      } p-4 lg:px-6 lg:py-8 cursor-pointer`}
+      } p-1 sm:px-2 sm:py-4 lg:px-6 lg:py-8 cursor-pointer`}
       initial="initial" // Set initial variant
       whileHover="hover" // Use hover variant
       variants={iconHoverAnimation} // Apply the variants object
@@ -46,7 +46,7 @@ const IconBlock: React.FC<Icons> = ({ name, img, color }) => {
       <figure className="w-full h-full">
         <img className="w-full h-full" src={img} alt="skill-icon" />
       </figure>
-      {isSmall && !isTooSmall && (
+      {isSmall && isTooSmall && (
         <h4
           className={`text-sm sm:text-md smd:text-lg ${
             isDark ? "text-secondary" : "text-blue-950"
