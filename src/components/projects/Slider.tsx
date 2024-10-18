@@ -20,6 +20,8 @@ const Slider: React.FC = () => {
         "/icons/react.svg",
         "/icons/framer.svg",
       ],
+      live: "",
+      github: "",
     },
     {
       id: 1,
@@ -37,6 +39,8 @@ const Slider: React.FC = () => {
         `/icons/${isDark ? "express_white" : "express"}.svg`,
         "/icons/mongodb.svg",
       ],
+      live: "",
+      github: "",
     },
     {
       id: 2,
@@ -52,6 +56,8 @@ const Slider: React.FC = () => {
         "/icons/react.svg",
         "/icons/framer.svg",
       ],
+      live: "",
+      github: "",
     },
   ]);
 
