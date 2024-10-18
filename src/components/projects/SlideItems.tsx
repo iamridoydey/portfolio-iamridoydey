@@ -41,7 +41,6 @@ const SlideItems: React.FC<Items> = React.memo(
           scaleY: scale,
           zIndex: 10 - index,
           transition: {
-            delay: 1,
             ease: "easeInOut",
           },
         }}
