@@ -9,21 +9,22 @@ const WebSkills: React.FC = () => {
   const isDark = useContext(ThemeContext)?.isDark;
 
   const icons = [
-    { img: "/icons/html.svg", color: "#E34F26" },
-    { img: "/icons/css.svg", color: "#1572B6" },
-    { img: "/icons/js.svg", color: "#F7DF1E" },
-    { img: "/icons/ts.svg", color: "#3178C6" },
-    { img: "/icons/nodejs.svg", color: "#339933" },
-    { img: "/icons/react.svg", color: "#61DAFB" },
-    { img: "/icons/bootstrap.svg", color: "#7952B3" },
-    { img: "/icons/tailwind.svg", color: "#06B6D4" },
+    { name: "html", img: "/icons/html.svg", color: "#E34F26" },
+    { name: "css", img: "/icons/css.svg", color: "#1572B6" },
+    { name: "javascript", img: "/icons/js.svg", color: "#F7DF1E" },
+    { name: "typescript", img: "/icons/ts.svg", color: "#3178C6" },
+    { name: "node js", img: "/icons/nodejs.svg", color: "#339933" },
+    { name: "react", img: "/icons/react_blue.svg", color: "#007acc" },
+    { name: "bootstrap", img: "/icons/bootstrap.svg", color: "#7952B3" },
+    { name: "tailwdind", img: "/icons/tailwind.svg", color: "#06B6D4" },
     {
+      name: "express",
       img: `/icons/${isDark ? "express_white" : "express"}.svg`,
       color: `${isDark ? "#ffffff" : "#000000"}`,
     },
-    { img: "/icons/mongodb.svg", color: "#47A248" },
-    { img: "/icons/postgresql.svg", color: "#336791" },
-    { img: "/icons/python.svg", color: "#3776AB" },
+    { name: "mongodb", img: "/icons/mongodb.svg", color: "#47A248" },
+    { name: "postgresql", img: "/icons/postgresql.svg", color: "#336791" },
+    { name: "python", img: "/icons/python.svg", color: "#3776AB" },
   ];
 
   const variants = {
@@ -60,7 +61,7 @@ const WebSkills: React.FC = () => {
 
       <div className="icons_container grid grid-cols-3 gap-4 mt-8">
         {icons.map((obj, index) => (
-          <IconBlock key={index} img={obj.img} color={obj.color} />
+          <IconBlock key={index} name={obj.name} img={obj.img} color={obj.color}/>
         ))}
       </div>
     </motion.div>

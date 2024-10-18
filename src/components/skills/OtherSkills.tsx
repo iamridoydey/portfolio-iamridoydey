@@ -2,11 +2,20 @@ import React, { useContext } from "react";
 import TagStart from "../basicUtility/TagStart";
 import TagClosed from "../basicUtility/TagClosed";
 import { ThemeContext } from "../../store/ThemeContext";
-import { iconHoverAnimation } from "./Animation";
 import { motion } from "framer-motion";
+import IconBlock from "./IconBlock";
 
 const OtherSkills: React.FC = () => {
   const { isDark } = useContext(ThemeContext) || {}; // Use optional chaining for safety
+
+  const icons = [
+    {
+      name: "penpot",
+      img: `${isDark ? "/icons/penpot_white.svg" : "/icons/penpot.svg"}`,
+      color: `${isDark ? "#ffffff" : "#000000"}`,
+    },
+    { name: "canva", img: "/icons/canva.svg", color: "#00c4cc" },
+  ];
 
   const variants = {
     initial: { x: "-100%", opacity: 0 },
@@ -40,34 +49,14 @@ const OtherSkills: React.FC = () => {
         </h2>
       </div>
       <div className="icons_container grid grid-cols-2 gap-6 px-6 py-2 mt-4">
-        <motion.div
-          className={`penpot_container min-w-16 min-h-16 max-w-32 max-h-32 box-border border-4 rounded-lg flex items-center justify-center p-4`}
-          style={{ borderColor: isDark ? "#fff" : "#000" }}
-          initial="initial"
-          whileHover="hover" // Use hover variant
-          variants={iconHoverAnimation} // Apply the variants object
-          custom={isDark ? "#ffffff" : "#000000"}
-        >
-          <img
-            className="penpot w-full h-full"
-            src={isDark ? "/icons/penpot_white.svg" : "/icons/penpot.svg"}
-            alt="Penpot icon"
+        {icons.map((obj, index) => (
+          <IconBlock
+            key={index}
+            name={obj.name}
+            img={obj.img}
+            color={obj.color}
           />
-        </motion.div>
-        <motion.div
-          className={`canva_container min-w-16 min-h-16 max-w-32 max-h-32 box-border border-4 rounded-lg flex items-center justify-center p-4`}
-          style={{ borderColor: "#00c4cc" }}
-          initial="initial"
-          whileHover="hover" // Use hover variant
-          variants={iconHoverAnimation} // Apply the variants object
-          custom={"#00c4cc"}
-        >
-          <img
-            className="canva w-full h-full"
-            src="/icons/canva.svg"
-            alt="Canva icon"
-          />
-        </motion.div>
+        ))}
       </div>
     </motion.div>
   );
