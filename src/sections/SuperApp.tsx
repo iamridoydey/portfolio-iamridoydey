@@ -12,13 +12,13 @@ interface Prop {
 
 const SuperApp: React.FC<Prop> = ({ children }) => {
   const { scrollYProgress } = useScroll();
-  const [loading, setLoading] = useState(false); // Loader visibility state
+  const [loading, setLoading] = useState(true); // Loader visibility state
   const scaleX = useSpring(0, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // Hide the loader after 3 seconds (3000 ms)
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer); // Clean up the timer on component unmount
   }, []);
