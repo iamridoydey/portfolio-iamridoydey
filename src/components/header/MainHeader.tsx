@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../store/ThemeContext";
+import { Link } from "react-router-dom";
 
 interface activeProps {
   active: string;
@@ -12,11 +13,11 @@ const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const menuItems = [
-    { name: "home", href: "#home" },
-    { name: "about", href: "#about" },
-    { name: "skills", href: "#skills" },
-    { name: "projects", href: "#projects" },
-    { name: "contact", href: "#contact" },
+    { name: "home", path: "/home" },
+    { name: "about", path: "/about" },
+    { name: "skills", path: "/skills" },
+    { name: "projects", path: "/projects" },
+    { name: "contact", path: "/contact" },
   ];
 
   useEffect(() => {
@@ -37,6 +38,14 @@ const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setActive(id); // Update active state
+    }
+  };
+
   return (
     <nav
       className={`hidden lg:flex justify-center ${
@@ -52,11 +61,14 @@ const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
       >
         {menuItems.map((item) => (
           <li key={item.name}>
-            <a
+            <Link
               onMouseEnter={() => setHovered(item.name)}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => setActive(item.name)}
-              href={item.href}
+              onClick={() => {
+                setActive(item.name);
+                scrollToSection(item.name);
+              }}
+              to={item.path}
               className={`font-extrabold transition-all duration-300`}
             >
               <span
@@ -88,7 +100,7 @@ const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
               >
                 /›
               </span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
