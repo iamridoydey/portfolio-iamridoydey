@@ -13,7 +13,7 @@ const MainHeader: React.FC<activeProps> = ({ active, setActive }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const menuItems = [
-    { name: "home", path: "/home" },
+    { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "skills", path: "/skills" },
     { name: "projects", path: "/projects" },

@@ -35,7 +35,7 @@ const MobileHeader: React.FC<activeProps> = ({
       } w-[95%] fixed z-[200] left-1/2 bottom-3 transform -translate-x-1/2 border flex justify-between gap-4 esm:gap-8 sm:gap-12 px-4 esm:px-8 py-3 rounded-lg shadow-xl lg:hidden`}
     >
       <Link
-        to="/home"
+        to="/"
         onClick={() => {
           setActive("home");
           scrollToSection("home");
