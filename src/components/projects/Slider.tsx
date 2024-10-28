@@ -120,6 +120,8 @@ const Slider: React.FC = () => {
             img={slide.img}
             description={slide.description}
             tech={slide.tech}
+            live={slide.live}
+            github={slide.github}
           />
         ))}
 

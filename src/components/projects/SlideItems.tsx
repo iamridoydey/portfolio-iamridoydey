@@ -8,10 +8,12 @@ interface Items {
   img: string;
   description: string;
   tech: string[];
+  live: string;
+  github: string;
 }
 
 const SlideItems: React.FC<Items> = React.memo(
-  ({ index, title, img, description, tech }) => {
+  ({ index, title, img, description, tech, live, github }) => {
     const isDark = useContext(ThemeContext)?.isDark;
     const [isLargeScreen, setIsLargeScreen] = useState(
       window.innerWidth >= 1024
@@ -116,13 +118,15 @@ const SlideItems: React.FC<Items> = React.memo(
         </div>
         <div className="buttons mt-4 flex flex-col lg:flex-row gap-4">
           <a
-            href="#"
+            href={live}
+            target="_blank"
             className="px-12 py-2 md:py-3 bg-tertiary text-center font-bold text-secondary rounded-md hover:bg-blue-400"
           >
             Live Demo
           </a>
           <a
-            href="#"
+            href={github}
+            target="_blank"
             className="px-12 py-2 md:py-3 bg-tertiary text-center font-bold text-secondary rounded-md hover:bg-blue-400"
           >
             Github
