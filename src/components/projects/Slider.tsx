@@ -46,7 +46,7 @@ const Slider: React.FC = () => {
     {
       id: 2,
       title: "LinkNQR",
-      img: "/img/profile_demo.png",
+      img: "/img/linkNQR.png",
       description:
         "It is a link shortner app where you can paste your url and get a short link that you can use anywhere you want. It also have analytics option to check how much time linked being clicked.",
       tech: [
