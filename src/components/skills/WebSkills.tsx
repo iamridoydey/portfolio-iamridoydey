@@ -13,8 +13,9 @@ const WebSkills: React.FC = () => {
     { name: "css", img: "/icons/css.svg", color: "#1572B6" },
     { name: "javascript", img: "/icons/js.svg", color: "#F7DF1E" },
     { name: "typescript", img: "/icons/ts.svg", color: "#3178C6" },
-    { name: "node js", img: "/icons/nodejs.svg", color: "#339933" },
+    { name: "nodejs", img: "/icons/nodejs.svg", color: "#339933" },
     { name: "react", img: "/icons/react_blue.svg", color: "#007acc" },
+    { name: "nextjs", img: "/icons/nextjs.svg", color: "#ffffff" },
     { name: "bootstrap", img: "/icons/bootstrap.svg", color: "#7952B3" },
     { name: "tailwdind", img: "/icons/tailwind.svg", color: "#06B6D4" },
     {
@@ -24,7 +25,6 @@ const WebSkills: React.FC = () => {
     },
     { name: "mongodb", img: "/icons/mongodb.svg", color: "#47A248" },
     { name: "postgresql", img: "/icons/postgresql.svg", color: "#336791" },
-    { name: "python", img: "/icons/python.svg", color: "#3776AB" },
   ];
 
   const variants = {

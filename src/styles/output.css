@@ -895,6 +895,10 @@ video {
   width: 100%;
 }
 
+.w-\[548px\] {
+  width: 548px;
+}
+
 .min-w-16 {
   min-width: 4rem;
 }
@@ -926,10 +930,6 @@ video {
 .max-w-fit {
   max-width: -moz-fit-content;
   max-width: fit-content;
-}
-
-.max-w-full {
-  max-width: 100%;
 }
 
 .flex-shrink-0 {
